@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+     <header>
+        <h1>Create Store</h1>
+    </header>
+    <section class="update-store-form">
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Jhon Liews" value="{{ store.name }}">
+            </div>
+            <div class="form-group">
+                <label for="url_prefix">URL Prefix</label>
+                <input type="text" class="form-control" id="url_prefix" name="url_prefix" placeholder="htpps://..."
+                       value="{{ store.url_prefix }}" aria-describedby="urlPrefixHelp">
+                <small id="urlPrefixHelp">
+                    What URL will all its items start with?
+                </small>
+            </div>
+            <div class="form-group">
+                 <label for="tag_name">Html Tag Name</label>
+                <input type="text" class="form-control" id="tag_name" name="tag_name" placeholder="p"
+                       value="{{ store.tag_name }}" aria-describedby="priceLimitHelp">
+                <small id="priceLimitHelp">
+                    What Html tag contains the price information for items in this store?
+                </small>
+            </div>
+            <div class="form-group">
+                 <label for="query">Html Query</label>
+                <input type="text" class="form-control" id="query" name="query" placeholder='{"class": "price price--large"}'
+                       value='{{ store.query }}' aria-describedby="queryHelp">
+                <small id="queryHelp">
+                    What attributes are on the element that contain the price? This  ia so we can find it on the page.
+                </small>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </section>
+{% endblock %}
